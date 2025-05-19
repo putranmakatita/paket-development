@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paket Produk Digital Custom - Bitwise</title>
+    <style>
+        :root {
+            --primary-blue: #1a73e8;
+            --dark-blue: #0d47a1;
+            --light-blue: #e8f0fe;
+            --white: #ffffff;
+            --gray-light: #f5f5f5;
+            --gray-medium: #e0e0e0;
+            --gray-dark: #757575;
+            --accent-color: #ff6d00;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--gray-light);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: var(--white);
+            padding: 3rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        h2.section-title {
+            color: var(--dark-blue);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2.section-title:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .section {
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--gray-medium);
+        }
+
+        .intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--gray-dark);
+        }
+
+        .package-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .package {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            width: 100%;
+            max-width: 500px;
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .package-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .package-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .package-title {
+            margin: 0;
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+        }
+
+        .package-description {
+            color: var(--gray-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .package-features {
+            padding-left: 0;
+            list-style-type: none;
+        }
+
+        .package-features li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.8rem;
+        }
+
+        .package-features li:before {
+            content: "•";
+            color: var(--primary-blue);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .price-range {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin: 1.5rem 0 1rem;
+            text-align: center;
+            background: var(--light-blue);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .price-range span {
+            font-size: 1rem;
+            color: var(--gray-dark);
+            font-weight: normal;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        .note {
+            font-style: italic;
+            color: var(--gray-dark);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background-color: var(--gray-light);
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .sub-packages {
+            margin-top: 2rem;
+        }
+
+        .sub-package {
+            background: var(--gray-light);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .sub-package-title {
+            font-weight: bold;
+            color: var(--dark-blue);
+            margin-top: 0;
+        }
+
+        .maintenance-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .maintenance-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            border-top: 3px solid var(--accent-color);
+        }
+
+        .maintenance-type {
+            font-weight: bold;
+            color: var(--dark-blue);
+            margin-top: 0;
+        }
+
+        .maintenance-price {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .cta-button:hover {
+            background: #e65100;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .special-note {
+            background: var(--light-blue);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .special-note h3 {
+            margin-top: 0;
+            color: var(--dark-blue);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: var(--dark-blue);
+            color: white;
+        }
+
+        footer p {
+            max-width: 600px;
+            margin: 0 auto 1rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px dotted white;
+        }
+
+        footer strong {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .package {
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2.section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Paket Produk Digital Custom Bitwise</h1>
+        <p>Solusi teknologi tepat guna untuk bisnis Anda, dikembangkan khusus sesuai kebutuhan</p>
+    </header>
+
+    <section class="section intro">
+        <p>Bitwise menawarkan pengembangan produk digital custom dengan kualitas terbaik. Setiap solusi dirancang khusus
+            untuk memenuhi kebutuhan unik bisnis Anda, dari skala UMKM hingga perusahaan besar.</p>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Paket Utama</h2>
+
+        <div class="package-container">
+            <div class="package">
+                <div class="package-header">
+                    <div class="package-icon">📘</div>
+                    <h3 class="package-title">Company Profile</h3>
+                </div>
+                <p class="package-description">Website statis atau semi-dinamis untuk kehadiran online yang profesional
+                </p>
+                <ul class="package-features">
+                    <li>Halaman: Beranda, Tentang Kami, Layanan, Galeri, Kontak</li>
+                    <li>Desain responsif & ringan</li>
+                    <li>Optimasi SEO dasar</li>
+                    <li>Integrasi media sosial</li>
+                    <li>Form kontak dan Google Maps</li>
+                </ul>
+                <div class="price-range">💰 Rp 1.500.000 – Rp 10.000.000 <span>Cocok untuk UMKM, startup dan
+                        perusahaan</span></div>
+                <a href="https://wa.me/6289604300702?text=Saya%20tertarik%20dengan%20paket%20Company%20Profile"
+                    class="cta-button">Konsultasi Sekarang</a>
+            </div>
+
+            <div class="package">
+                <div class="package-header">
+                    <div class="package-icon">🏛️</div>
+                    <h3 class="package-title">ERP System (Modular)</h3>
+                </div>
+                <p class="package-description">Sistem terintegrasi untuk manajemen bisnis yang efisien</p>
+                <ul class="package-features">
+                    <li>Modul dasar: Inventaris, Penjualan, Pembelian, Laporan</li>
+                    <li>Sistem multiuser dengan hak akses</li>
+                    <li>Bisa dihosting sendiri atau di cloud</li>
+                    <li>Antarmuka dashboard intuitif</li>
+                    <li>Integrasi dengan perangkat lain (opsional)</li>
+                </ul>
+                <div class="price-range">💰 Rp 15.000.000 – Rp 60.000.000 <span>Harga tergantung jumlah modul dan
+                        kompleksitas</span></div>
+                <p class="note">Bisa dikembangkan bertahap per modul sesuai kebutuhan</p>
+                <a href="https://wa.me/6289604300702?text=Saya%20tertarik%20dengan%20paket%20ERP%20System"
+                    class="cta-button">Konsultasi Sekarang</a>
+            </div>
+
+            <div class="package">
+                <div class="package-header">
+                    <div class="package-icon">🧑‍💼</div>
+                    <h3 class="package-title">HRIS System</h3>
+                </div>
+                <p class="package-description">Sistem manajemen sumber daya manusia terintegrasi</p>
+                <ul class="package-features">
+                    <li>Manajemen absensi dan kehadiran</li>
+                    <li>Pengajuan dan persetujuan cuti</li>
+                    <li>Generasi slip gaji otomatis</li>
+                    <li>Dashboard admin dan karyawan</li>
+                    <li>API untuk integrasi fingerprint/GPS</li>
+                    <li>Rekap laporan kehadiran</li>
+                </ul>
+                <div class="price-range">💰 Rp 8.000.000 – Rp 50.000.000 <span>Skalabel untuk perusahaan menengah</span>
+                </div>
+                <a href="https://wa.me/6289604300702?text=Saya%20tertarik%20dengan%20paket%20HRIS%20System"
+                    class="cta-button">Konsultasi Sekarang</a>
+            </div>
+        </div>
+
+        <h2 class="section-title">Website Khusus</h2>
+
+        <div class="package-container">
+            <div class="package">
+                <div class="package-header">
+                    <div class="package-icon">🌐</div>
+                    <h3 class="package-title">Website Umum</h3>
+                </div>
+
+                <div class="sub-packages">
+                    <div class="sub-package">
+                        <h4 class="sub-package-title">a. Portofolio Digital</h4>
+                        <ul class="package-features">
+                            <li>Untuk perorangan, kreator, freelancer</li>
+                            <li>HTML/CSS responsif dengan animasi</li>
+                            <li>Galeri karya/proyek</li>
+                            <li>Halaman kontak profesional</li>
+                        </ul>
+                        <div class="price-range">💰 Rp 800.000 – Rp 2.000.000</div>
+                    </div>
+
+                    <div class="sub-package">
+                        <h4 class="sub-package-title">b. Undangan Digital</h4>
+                        <ul class="package-features">
+                            <li>Desain unik untuk pernikahan, ulang tahun</li>
+                            <li>Fitur RSVP online</li>
+                            <li>Galeri foto & video</li>
+                            <li>Lokasi dengan Google Maps</li>
+                            <li>Buku tamu digital</li>
+                            <li>Admin panel (opsional)</li>
+                        </ul>
+                        <div class="price-range">💰 Rp 100.000 – Rp 1.500.000</div>
+                    </div>
+
+                    <div class="sub-package">
+                        <h4 class="sub-package-title">c. Landing Page Produk/Kampanye</h4>
+                        <ul class="package-features">
+                            <li>1–3 halaman promosi</li>
+                            <li>Desain ringan dan cepat</li>
+                            <li>Integrasi WhatsApp/Form</li>
+                            <li>Tombol CTA yang efektif</li>
+                            <li>Analytics tracking</li>
+                        </ul>
+                        <div class="price-range">💰 Rp 500.000 – Rp 3.000.000</div>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/6289604300702?text=Saya%20tertarik%20dengan%20paket%20Website%20Umum"
+                    class="cta-button">Konsultasi Sekarang</a>
+            </div>
+        </div>
+
+        <h2 class="section-title">Paket Maintenance Tambahan</h2>
+
+        <div class="maintenance-container">
+            <div class="maintenance-card">
+                <h4 class="maintenance-type">Basic</h4>
+                <ul class="package-features">
+                    <li>Backup mingguan</li>
+                    <li>Support via WhatsApp</li>
+                    <li>Monitoring dasar</li>
+                </ul>
+                <div class="maintenance-price">Rp 200.000 / bulan</div>
+            </div>
+
+            <div class="maintenance-card">
+                <h4 class="maintenance-type">Standard</h4>
+                <ul class="package-features">
+                    <li>Backup 2x per minggu</li>
+                    <li>Optimasi kecepatan</li>
+                    <li>Minor update konten</li>
+                    <li>Support prioritas</li>
+                </ul>
+                <div class="maintenance-price">Rp 500.000 / bulan</div>
+            </div>
+
+            <div class="maintenance-card">
+                <h4 class="maintenance-type">Premium</h4>
+                <ul class="package-features">
+                    <li>Backup harian</li>
+                    <li>Laporan bulanan</li>
+                    <li>Audit keamanan</li>
+                    <li>Support 24/7</li>
+                    <li>Prioritas layanan</li>
+                </ul>
+                <div class="maintenance-price">Rp 1.200.000 / bulan</div>
+            </div>
+        </div>
+
+        <div class="special-note">
+            <h3>✨ Catatan Khusus:</h3>
+            <ul class="package-features">
+                <li>Semua produk dapat dikembangkan menggunakan teknologi sesuai kebutuhan (PHP, Node.js, Python, dll)
+                </li>
+                <li>Dapat dikembangkan lebih lanjut setelah rilis (customizing after release)</li>
+                <li>Estimasi harga tergantung fitur dan revisi</li>
+                <li>Untuk proyek besar, kami sarankan pembuatan proposal dan scope yang jelas</li>
+                <li>Garansi bug fixing 1-3 bulan setelah launch</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>Butuh solusi khusus untuk bisnis Anda?</strong> Tim developer kami siap membantu!</p>
+        <p>Hubungi kami di WhatsApp: <strong>0896-0430-0702</strong><br>
+            atau kirim email ke <a href="mailto:putramakatita723@gmail.com">putramakatita723@gmail.com</a></p>
+        <p>Jam operasional: Senin-Jumat, 09:00-17:00 WIB</p>
+    </footer>
+</body>
+
+</html>
